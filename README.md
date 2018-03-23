@@ -1,6 +1,12 @@
 # magento2
 This is a less mixin that generates col-* bootstrap grid columns, container and row base styles.
 
+Copy the Less file to your vendor/theme/web/css/source path and import it to your sources.less file
+
+Then:
+grunt exec:your-theme
+grunt less:your-theme
+
 Use it like Bootstrap:
 ```
 <div class="container">
