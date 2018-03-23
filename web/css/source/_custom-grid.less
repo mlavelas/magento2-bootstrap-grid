@@ -1,0 +1,112 @@
+//
+//  Bootstrap 4 columns generation
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  body {
+    &:not(.page-layout-checkout) {
+      [class*="col-"] {
+        box-sizing: border-box;
+        min-height: 1px;
+        position: relative;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .row {
+        .lib-css (display, flex);
+        .lib-css (flex-wrap, wrap);
+        margin-bottom: 1rem;
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
+  }
+
+
+  //
+  // Flex columns for mobile
+  // ----------------------------------------------
+
+  .generate-columns-mobile(12);
+
+  .generate-columns-mobile(@n, @i: 1) when (@i =< @n) {
+    .col-xs-@{i} {
+      flex: 0 0 (@i * 100% / @n);
+      max-width: (@i * 100% / @n);
+    }
+    .generate-columns-mobile(@n, (@i + 1));
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+
+  //
+  // Flex columns for tablet S
+  // ----------------------------------------------
+
+  .generate-columns-tablet-s(12);
+
+  .generate-columns-tablet-s(@n, @i: 1) when (@i =< @n) {
+    .col-sm-@{i} {
+      flex: 0 0 (@i * 100% / @n);
+      max-width: (@i * 100% / @n);
+    }
+    .generate-columns-tablet-s(@n, (@i + 1));
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  // Flex columns for tablet M
+  // ----------------------------------------------
+
+  .generate-columns-tablet(12);
+
+  .generate-columns-tablet(@n, @i: 1) when (@i =< @n) {
+    .col-md-@{i} {
+      flex: 0 0 (@i * 100% / @n);
+      max-width: (@i * 100% / @n);
+    }
+    .generate-columns-tablet(@n, (@i + 1));
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  //
+  // Flex columns for desktop M
+  // ----------------------------------------------
+
+  .generate-columns-desktop-m(12);
+
+  .generate-columns-desktop-m(@n, @i: 1) when (@i =< @n) {
+    .col-lg-@{i} {
+      flex: 0 0 (@i * 100% / @n);
+      max-width: (@i * 100% / @n);
+    }
+    .generate-columns-desktop-m(@n, (@i + 1));
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+
+  //
+  // Flex columns for desktop L
+  // ----------------------------------------------
+
+  .generate-columns-desktop-l(12);
+
+  .generate-columns-desktop-l(@n, @i: 1) when (@i =< @n) {
+    .col-xl-@{i} {
+      flex: 0 0 (@i * 100% / @n);
+      max-width: (@i * 100% / @n);
+    }
+    .generate-columns-desktop-l(@n, (@i + 1));
+  }
+}
